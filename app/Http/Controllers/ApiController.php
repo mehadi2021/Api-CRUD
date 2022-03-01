@@ -108,6 +108,31 @@ catch (Exception $e) {
           ]);
         }
 
+    }
+
+
+        public function Delete($id)
+ {
+
+ $m=Registration::find($id);
+ if($m)
+ {
+       $m->delete();
+   return response()->json([
+              'success'=>true,
+              'data'=>$m,
+              'message'=>'This data delete  successfully',
+              'code'=>200
+          ]);
+        }
+        else
+        {
+            return response()->json([
+              'message'=>'Data not found',
+              'code'=>401
+          ]);
+        }
+
         }
 
 
