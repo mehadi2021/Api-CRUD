@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('/create',[ApiController::class,'Create']);
 Route::get('/list',[ApiController::class,'View']);
+Route::get('/search/{id}',[ApiController::class,'Search']);

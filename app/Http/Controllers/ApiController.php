@@ -59,10 +59,20 @@ catch (Exception $e) {
               'code'=>200
           ]);
 
-
  }
 
+ public function Search ($id)
+ {
 
+  $user= Registration::find($id);
+   return response()->json([
+              'success'=>true,
+              'data'=>$user,
+              'message'=>'successfully',
+              'code'=>200
+          ]);
+
+        }
 
 
 
