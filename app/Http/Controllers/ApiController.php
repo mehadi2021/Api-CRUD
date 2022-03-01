@@ -65,16 +65,50 @@ catch (Exception $e) {
  {
 
   $user= Registration::find($id);
+  if($user)
    return response()->json([
               'success'=>true,
               'data'=>$user,
               'message'=>'successfully',
               'code'=>200
           ]);
-
+          else
+   return response()->json([
+              'message'=>'Data not found',
+              'code'=>401
+          ]);
         }
 
+ public function Update(Request  $request,$id)
+ {
 
+ $m=Registration::find($id);
+ if($m)
+ {
+       $m->update([
+
+          'name'=>$request->name,
+          'gender'=>$request->gender,
+          'email'=>$request->email,
+          'password'=>bcrypt($request->password),
+          'phone'=>$request->phone,
+          ]);
+   return response()->json([
+              'success'=>true,
+              'data'=>$m,
+              'message'=>'successfully',
+              'code'=>200
+          ]);
+        }
+        else
+        {
+            return response()->json([
+              'message'=>'Data not found',
+              'code'=>401
+          ]);
+        }
+
+        }
 
 
 
